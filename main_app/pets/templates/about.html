@@ -1,0 +1,16 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block carousel %}
+    d-none
+{% endblock %}
+{% block menu-items %}
+    {% for menu_item in object_list %}
+        <a class="dropdown-item" href="/pets/kinds/{{menu_item.kind_name}}">{{menu_item.kind_name}}</a>
+    {% endfor %}
+{% endblock %}
+
+{% block content %}
+    <div class="embed-responsive embed-responsive-16by9 w-75">
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/XxthmuqWF1Q?rel=0" allowfullscreen></iframe>
+    </div>
+{% endblock %}

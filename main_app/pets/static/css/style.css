@@ -1,0 +1,54 @@
+.carousel {
+    width: 100%;
+}
+.carousel-item,
+.carousel-item.active {
+  height: 80vh;
+  width: 100%;
+}
+.carousel-inner {
+  height: 100%;
+}
+.carousel-item:nth-child(1) {
+  background-image: url("../images/cat-01.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.carousel-item:nth-child(2) {
+  background-image: url("../images/cat-11.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.carousel-item:nth-child(3) {
+  background-image: url("../images/dog-01.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.carousel-indicators li{
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+}
+.carousel-item>div{
+    height: 100%;
+}
+
+#custom_bg .nav-link.active, #custom_bg .show >.nav-link {    
+    background-color: #FFC108!important;
+}
+.copyright-text {
+    font-size: 0.8rem;
+}
+.pet-card {
+    width: 18rem;
+    height: 22rem; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+.pet-card-big>img {
+    width: 30rem;
+}

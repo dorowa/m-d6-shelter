@@ -1,0 +1,53 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block carousel %}
+    d-none
+{% endblock %}
+{% block menu-items %}
+    {% for menu_item in view.menu_list %}
+        <a class="dropdown-item" href="/pets/kinds/{{menu_item.kind_name}}">{{menu_item.kind_name}}</a>
+    {% endfor %}
+{% endblock %}
+
+{% block content %}
+        <div class="card pet-card-big">
+            <img src="{% if object.pet_img %}{{object.pet_img.url}}{% else %}{% static 'images/nopic.svg' %}{% endif %}" class="card-img-top" alt="pet photo">
+            <div class="card-body text-center d-flex flex-column justify-content-end">
+            <h6 class="card-title font-weight-bold bg-warning m-0 py-2">Кличка: {{object.pet_name}}</h6>
+            <table class="table table-borderless">
+                <tbody>
+                  <tr>
+                    <th scope="row">Дата рождения</th>
+                    <td>{{object.pet_birthdate}}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Дата регистрации</th>
+                    <td>{{object.pet_register_date}}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Пол</th>
+                    {% if object.pet_gender == "M" %}
+                        <td>мальчик</td>
+                    {% else %}
+                        <td>девочка</td>
+                    {% endif %}
+                  </tr>
+                  <tr>
+                    <th scope="row">Вид</th>
+                    <td>{{object.kind}}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Порода</th>
+                    <td>{{object.breed}}</td>
+                  </tr>
+                  {% if object.volunteer.vol_name %}
+                    <tr>
+                        <th scope="row">Владелец</th>
+                        <td>{{object.volunteer.vol_name}}</td>
+                    </tr>
+                  {% endif %}
+                </tbody>
+              </table>
+            </div>
+        </div>
+{% endblock %}

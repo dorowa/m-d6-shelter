@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block carousel %}
+    d-none
+{% endblock %}
+
+{% block menu-items %}
+    {% for menu_item in view.menu_list %}
+        <a class="dropdown-item" href="/pets/kinds/{{menu_item.kind_name}}">{{menu_item.kind_name}}</a>
+    {% endfor %}
+{% endblock %}
+
+{% block content %}
+    {% for pet in object_list %}
+        <div class="col col-3">
+            <div class="card pet-card m-2" style="background-image: url('{% if pet.pet_img %}{{pet.pet_img.url}}{% else %}{% static 'images/nopic.svg' %}{% endif %}');">
+                <!-- <img src="{% if pet.pet_img %}{{pet.pet_img.url}}{% else %}{% static 'images/nopic.svg' %}{% endif %}" class="card-img-top" alt="pet photo"> -->
+                <div class="card-body text-center d-flex flex-column justify-content-end">
+                <h6 class="card-title font-weight-bold bg-warning m-0">{{pet.pet_name}}</h6>
+                <a href="/pets/pet/{{pet.id}}" class="btn btn-danger">Давай дружить!</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

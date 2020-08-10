@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block menu-items %}
+    {% for kind in object_list %}
+        <a class="dropdown-item" href="/pets/kinds/{{kind.kind_name}}">{{kind.kind_name}}</a>
+    {% endfor %}
+{% endblock %}
+
+{% block content %}
+    <ul class="list-unstyled w-75">
+        <li class="media">
+            <img src="{% static 'images/nopic.svg'%}" class="mr-3" alt="..." width="64">
+            <div class="media-body">
+                <h5 class="mt-0 mb-1 text-info">Новые постояльцы</h5>
+                Сегодня за нашей помощью обратились сотрудники налоговой администрации, которые обнаружили на пустыре заброшенные контейнеры с животными. 200 голов овец неизвестные оставили без воды и корма
+                <a href="#">подробнее</a>
+            </div>
+        </li>
+        <li class="media my-4">
+            <img src="{% static 'images/cat-yin-yang-clipart-md.png' %}" class="mr-3" alt="..." width="64">
+            <div class="media-body">
+                <h5 class="mt-0 mb-1 text-info">Обмен опытом</h5>
+                На август 2020 мы заключили договор по обмену опытом с ведущей ветеринарной клиникой Италии, в частности, первый обмен специалистами орнитологами должен состоятся уже в сентябре
+                <a href="#">подробнее</a>
+            </div>
+        </li>
+        <li class="media">
+            <img src="{% static 'images/nurse-cap-clipart.svg'%}" class="mr-3" alt="..." width="64">
+            <div class="media-body">
+                <h5 class="mt-0 mb-1 text-info">Закончен сбор средств</h5>
+                Друзья, сегодня мы закончили сбор средств для покупки аппарата МРТ для наших питомцев. Благодаря вашей поддержке теперь наш ветеринарный корпус является лучшим на территории всей восточной Европы.
+                <a href="#">Подробнее...</a>
+            </div>
+        </li>
+    </ul>
+{% endblock %}
